@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/horizontal_counter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_gravity="center_horizontal"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+    <Button android:id="@+id/minus"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:text="@string/minus"
+        android:textSize="30sp" />
+
+    <TextView android:id="@+id/value"
+        android:layout_width="80dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_height="wrap_content"
+        android:maxEms="4"
+        android:maxLength="4"
+        android:maxLines="1"
+        android:minEms="1"
+        android:textSize="35sp"
+        android:gravity="center" />
+
+    <Button android:id="@+id/plus"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:text="@string/plus"
+        android:textSize="30sp" />
+
+</merge>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">horizontalcounter</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+</resources>
