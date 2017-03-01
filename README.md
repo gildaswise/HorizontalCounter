@@ -1,6 +1,6 @@
 # HorizontalCounter
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[ ![Download](https://api.bintray.com/packages/gildaswise/HorizontalCounter/HorizontalCounter/images/download.svg)](https://bintray.com/gildaswise/HorizontalCounter/HorizontalCounter/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/gildaswise/Libraries/HorizontalCounter/images/download.svg) ](https://bintray.com/gildaswise/Libraries/HorizontalCounter/_latestVersion)
 
 ![Screenshot](https://raw.githubusercontent.com/gildaswise/HorizontalCounter/master/art/screenshot.png)
 
