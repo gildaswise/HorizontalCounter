@@ -15,6 +15,20 @@ import android.widget.TextView;
  * Created by Gildaswise on 01/03/2017.
  */
 
+/**
+ * Copyright 2017 - Gildásio Filho (@gildaswise)
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 public class HorizontalCounter extends LinearLayout {
 
     private int stepValue = 1;
@@ -176,5 +190,41 @@ public class HorizontalCounter extends LinearLayout {
         this.minValue = minValue;
         if(minValue >= maxValue) {throw new InvalidLimitsException();}
         setupButtons();
+    }
+
+    public int getPlusButtonColor() {
+        return plusButtonColor;
+    }
+
+    public void setPlusButtonColor(int plusButtonColor) {
+        this.plusButtonColor = plusButtonColor;
+        plusButton.setTextColor(plusButtonColor);
+    }
+
+    public int getMinusButtonColor() {
+        return minusButtonColor;
+    }
+
+    public void setMinusButtonColor(int minusButtonColor) {
+        this.minusButtonColor = minusButtonColor;
+        minusButton.setTextColor(minusButtonColor);
+    }
+
+    public int getTextColor() {
+        return textColor;
+    }
+
+    public void setTextColor(int textColor) {
+        this.textColor = textColor;
+        value.setTextColor(textColor);
+    }
+
+    public int getTextSize() {
+        return textSize;
+    }
+
+    public void setTextSize(int textSize) {
+        this.textSize = (int) (textSize * getResources().getDisplayMetrics().density);
+        value.setTextSize(this.textSize);
     }
 }

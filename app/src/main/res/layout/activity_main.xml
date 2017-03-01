@@ -2,7 +2,6 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,13 +9,13 @@
         android:id="@+id/horizontal_counter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:stepValue="2"
+        app:stepValue="1"
         app:textColor="#009688"
         app:minusButtonColor="#F44336"
         app:plusButtonColor="#2196F3"
         app:initialValue="1"
         app:maxValue="100"
-        app:minValue="-10"
+        app:minValue="-100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

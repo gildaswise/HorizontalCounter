@@ -61,7 +61,7 @@ public class RepeatListener implements OnTouchListener {
         this.releaseCallback = releaseCallback;
     }
 
-    public RepeatListener(OnClickListener clickListener, ReleaseCallback releaseCallback) {
+    RepeatListener(OnClickListener clickListener, ReleaseCallback releaseCallback) {
         if (clickListener == null)
             throw new IllegalArgumentException("null runnable");
         this.clickListener = clickListener;

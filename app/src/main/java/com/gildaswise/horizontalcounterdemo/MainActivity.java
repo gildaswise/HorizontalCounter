@@ -1,5 +1,6 @@
 package com.gildaswise.horizontalcounterdemo;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -17,9 +18,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         horizontalCounter = (HorizontalCounter) findViewById(R.id.horizontal_counter);
-        horizontalCounter.setMaxValue(120);
-        horizontalCounter.setMinValue(-20);
-        horizontalCounter.setStepValue(20);
+        horizontalCounter.setStepValue(1);
+        horizontalCounter.setMaxValue(100);
+        horizontalCounter.setMinValue(-100);
+        horizontalCounter.setCurrentValue(1);
+        horizontalCounter.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+        horizontalCounter.setMinusButtonColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        horizontalCounter.setPlusButtonColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+        horizontalCounter.setTextSize(16);
+
         horizontalCounter.setOnReleaseListener(new RepeatListener.ReleaseCallback() {
             @Override
             public void onRelease() {
