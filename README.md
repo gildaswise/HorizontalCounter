@@ -1,6 +1,6 @@
 # HorizontalCounter
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[ ![Download](https://api.bintray.com/packages/gildaswise/Libraries/HorizontalCounter/images/download.svg) ](https://bintray.com/gildaswise/Libraries/HorizontalCounter/_latestVersion)
+[![Download](https://jitpack.io/v/gildaswise/HorizontalCounter.svg)](https://jitpack.io/#gildaswise/HorizontalCounter)
 
 ![Screenshot](https://raw.githubusercontent.com/gildaswise/HorizontalCounter/master/art/screenshot.png)
 
@@ -10,12 +10,23 @@ An amazingly simple and easy-to-use library for your counter (or number picker) 
 
 ![GIF](https://raw.githubusercontent.com/gildaswise/HorizontalCounter/master/art/demo.gif)
 
-## Use it now! (via Gradle)
+## First, add JitPack to your project's build.gradle (outside of app folder)
+
+```java
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+## Then add this in your app's build.gradle dependencies
 
 ```java
 dependencies {
     ...
-    compile 'com.gildaswise:horizontalcounter:1.0.0'
+    compile 'com.github.gildaswise:HorizontalCounter:1.0.1'
 }
 ```
 
