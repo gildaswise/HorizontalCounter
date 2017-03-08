@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         horizontalCounter.setOnReleaseListener(new RepeatListener.ReleaseCallback() {
             @Override
             public void onRelease() {
-                Toast.makeText(MainActivity.this, "Value updated to: " + horizontalCounter.getCurrentValue(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Value updated to: " + horizontalCounter.getCurrentValue(), Toast.LENGTH_SHORT).show();
             }
         });
 
