@@ -120,7 +120,7 @@ public class HorizontalCounter extends LinearLayout {
         return new RepeatListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(currentValue < maxValue && (currentValue + stepValue) < maxValue) {
+                if(currentValue < maxValue && (currentValue + stepValue) <= maxValue) {
                     currentValue += stepValue;
                     updateCurrentValue();
                 }
@@ -147,7 +147,7 @@ public class HorizontalCounter extends LinearLayout {
         return new RepeatListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(currentValue > minValue && (currentValue - stepValue) > minValue) {
+                if(currentValue > minValue && (currentValue - stepValue) >= minValue) {
                     currentValue -= stepValue;
                     updateCurrentValue();
                 }

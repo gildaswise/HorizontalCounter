@@ -1,23 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.novoda.bintray-release'
 group = 'com.github.gildaswise'
-
-ext {
-    PUBLISH_GROUP_ID = 'com.gildaswise'
-    PUBLISH_ARTIFACT_ID = 'horizontalcounter'
-    PUBLISH_VERSION = '1.0.1'
-}
-
-publish {
-    groupId = 'com.gildaswise'
-    artifactId = 'horizontalcounter'
-    publishVersion = '1.0.1'
-    desc = 'A simple and easy library to help with a horizontal counter (or number picker) with customizable min/max values and step values'
-    licences = ['Apache-2.0']
-    uploadName='HorizontalCounter'
-    website = 'https://github.com/gildaswise/HorizontalCounter.git'
-}
 
 android {
     compileSdkVersion 25
@@ -26,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -46,5 +29,3 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.2.0'
     testCompile 'junit:junit:4.12'
 }
-
-apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
