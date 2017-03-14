@@ -26,7 +26,7 @@ allprojects {
 ```java
 dependencies {
     ...
-    compile 'com.github.gildaswise:HorizontalCounter:1.0.2'
+    compile 'com.github.gildaswise:HorizontalCounter:1.0.3'
 }
 ```
 
@@ -43,6 +43,7 @@ dependencies {
     app:textColor="#009688"
     app:minusButtonColor="#F44336"
     app:plusButtonColor="#2196F3"
+    app:displayInteger="false"
     app:initialValue="1"
     app:maxValue="100"
     app:minValue="-100" />
@@ -54,13 +55,15 @@ dependencies {
 HorizontalCounter horizontalCounter = (HorizontalCounter) findViewById(R.id.horizontal_counter);
 
 //Value of increasing/decreasing
-horizontalCounter.setStepValue(1); 
+horizontalCounter.setStepValue(1.0); 
 //Obviously, the maximum value
-horizontalCounter.setMaxValue(100);
+horizontalCounter.setMaxValue(100.0);
 //Same as above (but minimum)
-horizontalCounter.setMinValue(-100);
+horizontalCounter.setMinValue(-100.0);
 //The current value is the one displayed on the view, you can set its starting value here, or via XML above
-horizontalCounter.setCurrentValue(1);
+horizontalCounter.setCurrentValue(1.0);
+// If you want to display as integer just do this:
+horizontalCounter.setDisplayingInteger(true);
 //As the name says, this will make the onRelease() code run after any of the buttons is released, either in a long press, or single press
 horizontalCounter.setOnReleaseListener(new RepeatListener.ReleaseCallback() {
     @Override
