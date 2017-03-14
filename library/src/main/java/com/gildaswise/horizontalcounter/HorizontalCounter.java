@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 /**
  * Created by Gildaswise on 01/03/2017.
  */
@@ -31,14 +33,15 @@ import android.widget.TextView;
 
 public class HorizontalCounter extends LinearLayout {
 
-    private int stepValue = 1;
-    private int currentValue = 0;
-    private int maxValue = 999;
-    private int minValue = -maxValue;
+    private Double stepValue = 1.0;
+    private Double currentValue = 0.0;
+    private Double maxValue = 999.0;
+    private Double minValue = -maxValue;
     private int plusButtonColor;
     private int minusButtonColor;
     private int textColor;
     private int textSize = 16;
+    private boolean displayingInteger = false;
     private RepeatListener.ReleaseCallback releaseCallback;
     private TextView value;
     private Button plusButton, minusButton;
@@ -71,10 +74,11 @@ public class HorizontalCounter extends LinearLayout {
             minusButtonColor = attributes.getColor(R.styleable.HorizontalCounter_minusButtonColor, minusButtonColor);
             textColor = attributes.getColor(R.styleable.HorizontalCounter_textColor, textColor);
             textSize = (int) attributes.getDimension(R.styleable.HorizontalCounter_textSize, textSize);
-            currentValue = attributes.getInt(R.styleable.HorizontalCounter_initialValue, currentValue);
-            stepValue = attributes.getInt(R.styleable.HorizontalCounter_stepValue, stepValue);
-            maxValue = attributes.getInt(R.styleable.HorizontalCounter_maxValue, maxValue);
-            minValue = attributes.getInt(R.styleable.HorizontalCounter_minValue, minValue);
+            currentValue = (double) attributes.getFloat(R.styleable.HorizontalCounter_initialValue, currentValue.floatValue());
+            stepValue = (double) attributes.getFloat(R.styleable.HorizontalCounter_stepValue, stepValue.floatValue());
+            maxValue = (double) attributes.getFloat(R.styleable.HorizontalCounter_maxValue, maxValue.floatValue());
+            minValue = (double) attributes.getFloat(R.styleable.HorizontalCounter_minValue, minValue.floatValue());
+            displayingInteger = attributes.getBoolean(R.styleable.HorizontalCounter_displayInteger, false);
             if(maxValue <= minValue || minValue >= maxValue) {throw new InvalidLimitsException();}
             attributes.recycle();
         }
@@ -128,7 +132,7 @@ public class HorizontalCounter extends LinearLayout {
     }
 
     private void updateCurrentValue() {
-        if(value != null) {value.setText(String.valueOf(currentValue));}
+        if(getCurrentValue() != null) {value.setText(String.valueOf((isDisplayingInteger()) ? Integer.toString(getCurrentValue().intValue()) : getCurrentValue().floatValue()));}
     }
 
     private void setupMinusButton() {
@@ -154,41 +158,41 @@ public class HorizontalCounter extends LinearLayout {
             }}, releaseCallback);
     }
 
-    public int getStepValue() {
+    public Double getStepValue() {
         return stepValue;
     }
 
-    public void setStepValue(int stepValue) {
+    public void setStepValue(Double stepValue) {
         this.stepValue = stepValue;
         setupButtons();
     }
 
-    public int getCurrentValue() {
+    public Double getCurrentValue() {
         return currentValue;
     }
 
-    public void setCurrentValue(int currentValue) {
+    public void setCurrentValue(Double currentValue) {
         this.currentValue = currentValue;
         setupViews();
     }
 
-    public int getMaxValue() {
+    public Double getMaxValue() {
         return maxValue;
     }
 
-    public void setMaxValue(int maxValue) {
+    public void setMaxValue(Double maxValue) {
         this.maxValue = maxValue;
-        if(maxValue <= minValue) {throw new InvalidLimitsException();}
+        if(maxValue <= getMinValue()) {throw new InvalidLimitsException();}
         setupButtons();
     }
 
-    public int getMinValue() {
+    public Double getMinValue() {
         return minValue;
     }
 
-    public void setMinValue(int minValue) {
+    public void setMinValue(Double minValue) {
         this.minValue = minValue;
-        if(minValue >= maxValue) {throw new InvalidLimitsException();}
+        if(minValue >= getMaxValue()) {throw new InvalidLimitsException();}
         setupButtons();
     }
 
@@ -208,6 +212,15 @@ public class HorizontalCounter extends LinearLayout {
     public void setMinusButtonColor(int minusButtonColor) {
         this.minusButtonColor = minusButtonColor;
         minusButton.setTextColor(minusButtonColor);
+    }
+
+    public boolean isDisplayingInteger() {
+        return displayingInteger;
+    }
+
+    public void setDisplayingInteger(boolean displayingInteger) {
+        this.displayingInteger = displayingInteger;
+        updateCurrentValue();
     }
 
     public int getTextColor() {

@@ -11,30 +11,30 @@
 
     <Button android:id="@+id/minus"
         android:foreground="?android:attr/selectableItemBackground"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@android:color/transparent"
         android:text="@string/minus"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
     <TextView android:id="@+id/value"
-        android:layout_width="80dp"
+        android:layout_width="96dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_height="wrap_content"
-        android:maxEms="4"
-        android:maxLength="4"
+        android:maxEms="6"
+        android:maxLength="6"
         android:maxLines="1"
         android:minEms="1"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:gravity="center" />
 
     <Button android:id="@+id/plus"
         android:foreground="?android:attr/selectableItemBackground"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@android:color/transparent"
         android:text="@string/plus"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
 </merge>

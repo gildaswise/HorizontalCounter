@@ -18,10 +18,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         horizontalCounter = (HorizontalCounter) findViewById(R.id.horizontal_counter);
-        horizontalCounter.setStepValue(1);
-        horizontalCounter.setMaxValue(100);
-        horizontalCounter.setMinValue(-100);
-        horizontalCounter.setCurrentValue(1);
+        horizontalCounter.setStepValue(1.0);
+        horizontalCounter.setMaxValue(100.0);
+        horizontalCounter.setMinValue(-100.0);
+        horizontalCounter.setCurrentValue(1.0);
+        // If you want to display as integer just do this:
+        // horizontalCounter.setDisplayingInteger(true);
         horizontalCounter.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
         horizontalCounter.setMinusButtonColor(ContextCompat.getColor(this, R.color.colorPrimary));
         horizontalCounter.setPlusButtonColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
