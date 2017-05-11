@@ -9,6 +9,6 @@
         <attr name="minusButtonColor" format="color"/>
         <attr name="textColor" format="color"/>
         <attr name="textSize" format="dimension"/>
-        <attr name="displayInteger" format="boolean"/>
+        <attr name="displayAsInteger" format="boolean"/>
     </declare-styleable>
 </resources>

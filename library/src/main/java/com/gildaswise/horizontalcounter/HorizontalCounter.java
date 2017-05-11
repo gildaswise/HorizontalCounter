@@ -2,6 +2,8 @@ package com.gildaswise.horizontalcounter;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.databinding.BindingMethod;
+import android.databinding.BindingMethods;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -30,6 +32,14 @@ import java.util.Locale;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+//app:stepValue="1"
+//        app:textColor="#009688"
+//        app:minusButtonColor="#F44336"
+//        app:plusButtonColor="#2196F3"
+//        app:initialValue="1"
+//        app:maxValue="100"
+//        app:minValue="-100"
 
 public class HorizontalCounter extends LinearLayout {
 
@@ -78,7 +88,7 @@ public class HorizontalCounter extends LinearLayout {
             stepValue = (double) attributes.getFloat(R.styleable.HorizontalCounter_stepValue, stepValue.floatValue());
             maxValue = (double) attributes.getFloat(R.styleable.HorizontalCounter_maxValue, maxValue.floatValue());
             minValue = (double) attributes.getFloat(R.styleable.HorizontalCounter_minValue, minValue.floatValue());
-            displayingInteger = attributes.getBoolean(R.styleable.HorizontalCounter_displayInteger, false);
+            displayingInteger = attributes.getBoolean(R.styleable.HorizontalCounter_displayAsInteger, false);
             if(maxValue <= minValue || minValue >= maxValue) {throw new InvalidLimitsException();}
             attributes.recycle();
         }

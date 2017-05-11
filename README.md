@@ -2,8 +2,6 @@
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Download](https://jitpack.io/v/gildaswise/HorizontalCounter.svg)](https://jitpack.io/#gildaswise/HorizontalCounter)
 
-![Screenshot](https://raw.githubusercontent.com/gildaswise/HorizontalCounter/master/art/screenshot.png)
-
 An amazingly simple and easy-to-use library for your counter (or number picker) needs! It started as a Ctrl-C, Ctrl-V code between my projects and now I've decided to make it into a open-source library!
 
 ## Demo
@@ -26,7 +24,7 @@ allprojects {
 ```java
 dependencies {
     ...
-    compile 'com.github.gildaswise:HorizontalCounter:1.0.3'
+    compile 'com.github.gildaswise:HorizontalCounter:1.0.5'
 }
 ```
 
@@ -41,9 +39,10 @@ dependencies {
     android:layout_height="wrap_content"
     app:stepValue="1"
     app:textColor="#009688"
+    app:textSize="16dp"
     app:minusButtonColor="#F44336"
     app:plusButtonColor="#2196F3"
-    app:displayInteger="false"
+    app:displayAsInteger="false"
     app:initialValue="1"
     app:maxValue="100"
     app:minValue="-100" />
