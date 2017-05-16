@@ -145,9 +145,11 @@ public class HorizontalCounter extends LinearLayout {
     }
 
     private void updateCurrentValue() {
-        int stepCount = getStepValueCount();
-        String defaultFormat = (isDisplayingInteger()) ? "%d" : "%." + stepCount + "f";
-        if(getCurrentValue() != null) {value.setText(String.format(defaultFormat, getCurrentValue()));}
+        if(getCurrentValue() != null) {
+            value.setText((isDisplayingInteger()) ?
+                    String.format(Locale.US, "%d", getCurrentValue().intValue()) :
+                    String.format("%." + getStepValueCount() + "f", getCurrentValue().floatValue()));
+        }
     }
 
     private void setupMinusButton() {

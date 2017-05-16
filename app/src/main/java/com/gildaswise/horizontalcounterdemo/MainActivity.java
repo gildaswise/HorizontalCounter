@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         horizontalCounter.setMinValue(-100.0);
         horizontalCounter.setCurrentValue(1.0);
         // If you want to display as integer just do this:
-        // horizontalCounter.setDisplayingInteger(true);
+        horizontalCounter.setDisplayingInteger(true);
         horizontalCounter.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
         horizontalCounter.setMinusButtonColor(ContextCompat.getColor(this, R.color.colorPrimary));
         horizontalCounter.setPlusButtonColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
