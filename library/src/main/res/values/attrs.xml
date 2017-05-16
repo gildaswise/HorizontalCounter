@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="HorizontalCounter">
-        <attr name="stepValue" format="float"/>
-        <attr name="initialValue" format="float"/>
-        <attr name="maxValue" format="float"/>
-        <attr name="minValue" format="float"/>
+        <attr name="stepValue" format="string"/>
+        <attr name="initialValue" format="string"/>
+        <attr name="maxValue" format="string"/>
+        <attr name="minValue" format="string"/>
         <attr name="plusButtonColor" format="color"/>
         <attr name="minusButtonColor" format="color"/>
         <attr name="textColor" format="color"/>

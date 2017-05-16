@@ -24,7 +24,7 @@ allprojects {
 ```java
 dependencies {
     ...
-    compile 'com.github.gildaswise:HorizontalCounter:1.0.5'
+    compile 'com.github.gildaswise:HorizontalCounter:1.0.6'
 }
 ```
 
@@ -77,6 +77,8 @@ horizontalCounter.setPlusButtonColor(ContextCompat.getColor(this, R.color.colorP
 horizontalCounter.setTextSize(16);
 
 ```
+
+# You can also use it with Data Binding! (Click [here](https://github.com/gildaswise/HorizontalCounter/blob/master/app/src/main/java/com/gildaswise/horizontalcounterdemo/MainActivityDataBinding.java) for an example!)
 
 ## Sample
 

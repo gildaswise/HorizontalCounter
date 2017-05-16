@@ -1,8 +1,8 @@
 package com.gildaswise.horizontalcounterdemo;
 
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Toast;
 
 import com.gildaswise.horizontalcounter.HorizontalCounter;
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         horizontalCounter = (HorizontalCounter) findViewById(R.id.horizontal_counter);
-        horizontalCounter.setStepValue(1.0);
+        horizontalCounter.setStepValue(0.01);
         horizontalCounter.setMaxValue(100.0);
         horizontalCounter.setMinValue(-100.0);
         horizontalCounter.setCurrentValue(1.0);
