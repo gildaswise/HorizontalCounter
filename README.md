@@ -24,7 +24,7 @@ allprojects {
 ```java
 dependencies {
     ...
-    compile 'com.github.gildaswise:HorizontalCounter:1.0.6'
+    compile 'com.github.gildaswise:HorizontalCounter:1.0.6.1'
 }
 ```
 
