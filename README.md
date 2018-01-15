@@ -24,7 +24,7 @@ allprojects {
 ```java
 dependencies {
     ...
-    compile 'com.github.gildaswise:HorizontalCounter:1.0.6.1'
+    compile 'com.github.gildaswise:HorizontalCounter:1.1.0'
 }
 ```
 
@@ -51,26 +51,27 @@ dependencies {
 * In Java:
 
 ```java
-HorizontalCounter horizontalCounter = (HorizontalCounter) findViewById(R.id.horizontal_counter);
+HorizontalCounter horizontalCounter = findViewById<HorizontalCounter>(R.id.horizontal_counter);
 
-//Value of increasing/decreasing
+// Value of increasing/decreasing
 horizontalCounter.setStepValue(1.0); 
-//Obviously, the maximum value
+// Obviously, the maximum value
 horizontalCounter.setMaxValue(100.0);
-//Same as above (but minimum)
+// Same as above (but minimum)
 horizontalCounter.setMinValue(-100.0);
-//The current value is the one displayed on the view, you can set its starting value here, or via XML above
+// The current value is the one displayed on the view, you can set its starting value here, or via XML above
 horizontalCounter.setCurrentValue(1.0);
 // If you want to display as integer just do this:
 horizontalCounter.setDisplayingInteger(true);
-//As the name says, this will make the onRelease() code run after any of the buttons is released, either in a long press, or single press
+// As the name says, this will make the onRelease() code run after any of the buttons is released, either in a long press, or single press
 horizontalCounter.setOnReleaseListener(new RepeatListener.ReleaseCallback() {
     @Override
     public void onRelease() {
         Toast.makeText(MainActivity.this, "Value updated to: " + horizontalCounter.getCurrentValue(), Toast.LENGTH_SHORT).show();
     }
 });
-//You can also set each color via Java (using int color values), and also value's textSize
+
+// You can also set each color via Java (using int color values), and also value's textSize
 horizontalCounter.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
 horizontalCounter.setMinusButtonColor(ContextCompat.getColor(this, R.color.colorPrimary));
 horizontalCounter.setPlusButtonColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
@@ -84,10 +85,9 @@ horizontalCounter.setTextSize(16);
 
 * Just clone the repository and check the *app* module!
 
-
 ## License
 
-> Copyright 2017 - Gildásio Filho (@gildaswise)
+> Copyright 2018 - Gildásio Filho - @gildaswise
 > Licensed under the Apache License, Version 2.0 (the "License");
 > you may not use this file except in compliance with the License.
 > You may obtain a copy of the License at
