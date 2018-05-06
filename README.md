@@ -77,7 +77,7 @@ horizontalCounter?.setOnReleaseListener(RepeatListener.ReleaseCallback {
 
 ```
 
-## You can also use it with Data Binding! (Click [here](https://github.com/gildaswise/HorizontalCounter/blob/master/app/src/main/java/com/gildaswise/horizontalcounterdemo/MainActivityDataBinding.java) for an example!)
+## You can also use it with Data Binding! (Click [here](https://github.com/gildaswise/HorizontalCounter/blob/master/app/src/main/java/com/gildaswise/horizontalcounterdemo/MainActivityDataBinding.kt) for an example!)
 
 ## Sample
 
