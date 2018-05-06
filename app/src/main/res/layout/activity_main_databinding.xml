@@ -29,6 +29,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:minusButtonColor="#F44336"
             app:plusButtonColor="#2196F3"
+            app:plusIcon="@{@drawable/chevron_down}"
             app:textColor="#009688" />
 
     </android.support.constraint.ConstraintLayout>

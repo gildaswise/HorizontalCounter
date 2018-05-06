@@ -1,11 +1,13 @@
 package com.gildaswise.horizontalcounter
 
 import android.content.Context
+import android.graphics.drawable.Drawable
+import android.support.annotation.ColorInt
+import android.support.annotation.DrawableRes
 import android.support.v4.content.ContextCompat
 import android.support.v4.graphics.drawable.DrawableCompat
 import android.util.AttributeSet
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -36,18 +38,26 @@ open class HorizontalCounter(context: Context, attrs: AttributeSet) : LinearLayo
         const val DEFAULT_CURRENT_VALUE: Double = 0.0
         const val DEFAULT_MAX_VALUE: Double = 999.0
 
+        @DrawableRes private var DEFAULT_PLUS_ICON: Int = R.drawable.plus
+        @DrawableRes private var DEFAULT_MINUS_ICON: Int = R.drawable.minus
+
     }
 
     private var stepValue: Double = DEFAULT_STEP_COUNT
     private var currentValue: Double = DEFAULT_CURRENT_VALUE
     private var maxValue: Double = DEFAULT_MAX_VALUE
     private var minValue: Double = -DEFAULT_MAX_VALUE
-    private var plusButtonColor: Int = 0
-    private var minusButtonColor: Int = 0
+
+    @ColorInt private var plusButtonColor: Int = 0
+    @ColorInt private var minusButtonColor: Int = 0
+    private var plusIcon: Drawable? = ContextCompat.getDrawable(context, DEFAULT_PLUS_ICON)
+    private var minusIcon: Drawable? = ContextCompat.getDrawable(context, DEFAULT_MINUS_ICON)
     private var textColor: Int = 0
     private var textSize: Int = DEFAULT_TEXT_SIZE
+
     private var displayingInteger = false
     private var releaseCallback: RepeatListener.ReleaseCallback? = null
+
     private var value: TextView? = null
     private var plusButton: ImageButton? = null
     private var minusButton: ImageButton? = null
@@ -69,12 +79,16 @@ open class HorizontalCounter(context: Context, attrs: AttributeSet) : LinearLayo
 
         plusButtonColor = attributes.getColor(R.styleable.HorizontalCounter_plusButtonColor, plusButtonColor)
         minusButtonColor = attributes.getColor(R.styleable.HorizontalCounter_minusButtonColor, minusButtonColor)
-        textColor = attributes.getColor(R.styleable.HorizontalCounter_textColor, textColor)
         textSize = attributes.getDimension(R.styleable.HorizontalCounter_textSize, textSize.toFloat()).toInt()
+        setTextColor(attributes.getColor(R.styleable.HorizontalCounter_textColor, textColor))
+
         currentValue = attributes.getString(R.styleable.HorizontalCounter_initialValue)?.toDouble() ?: DEFAULT_CURRENT_VALUE
-        setStepValue(attributes.getString(R.styleable.HorizontalCounter_stepValue)?.toDouble() ?: DEFAULT_STEP_COUNT)
         maxValue = attributes.getString(R.styleable.HorizontalCounter_maxValue)?.toDouble() ?: DEFAULT_MAX_VALUE
         minValue = attributes.getString(R.styleable.HorizontalCounter_minValue)?.toDouble() ?: -DEFAULT_MAX_VALUE
+        setStepValue(attributes.getString(R.styleable.HorizontalCounter_stepValue)?.toDouble() ?: DEFAULT_STEP_COUNT)
+
+        plusIcon = attributes.getDrawable(R.styleable.HorizontalCounter_plusIcon) ?: ContextCompat.getDrawable(context, DEFAULT_PLUS_ICON)
+        minusIcon = attributes.getDrawable(R.styleable.HorizontalCounter_minusIcon) ?: ContextCompat.getDrawable(context, DEFAULT_MINUS_ICON)
 
         displayingInteger = attributes.getBoolean(R.styleable.HorizontalCounter_displayAsInteger, false)
 
@@ -90,8 +104,7 @@ open class HorizontalCounter(context: Context, attrs: AttributeSet) : LinearLayo
     private fun setupViews() {
         prepareViews(true)
         setupValueTextView()
-        setupPlusButton()
-        setupMinusButton()
+        setupButtons()
         prepareViews(false)
     }
 
@@ -125,7 +138,8 @@ open class HorizontalCounter(context: Context, attrs: AttributeSet) : LinearLayo
 
     private fun setupPlusButton() {
         plusButton?.apply {
-            setTextColor(plusButtonColor)
+            setImageDrawable(plusIcon)
+            setPlusButtonColor(plusButtonColor)
             setOnTouchListener(getPlusButtonListener())
         }
     }
@@ -157,7 +171,7 @@ open class HorizontalCounter(context: Context, attrs: AttributeSet) : LinearLayo
 
     private fun setupMinusButton() {
         minusButton?.apply {
-            setTextColor(minusButtonColor)
+            setMinusButtonColor(minusButtonColor)
             setOnTouchListener(getMinusButtonListener())
         }
     }
@@ -232,6 +246,16 @@ open class HorizontalCounter(context: Context, attrs: AttributeSet) : LinearLayo
     fun setMinusButtonColor(minusButtonColor: Int) {
         this.minusButtonColor = minusButtonColor
         this.minusButton?.drawable?.let { DrawableCompat.setTint(it, minusButtonColor) }
+    }
+
+    fun setPlusIcon(drawable: Drawable?) {
+        this.plusButton?.setImageDrawable(drawable ?: ContextCompat.getDrawable(context, DEFAULT_PLUS_ICON));
+        setPlusButtonColor(plusButtonColor)
+    }
+
+    fun setMinusIcon(drawable: Drawable?) {
+        this.minusButton?.setImageDrawable(drawable ?: ContextCompat.getDrawable(context, DEFAULT_MINUS_ICON));
+        setMinusButtonColor(minusButtonColor)
     }
 
     fun isDisplayingInteger(): Boolean {

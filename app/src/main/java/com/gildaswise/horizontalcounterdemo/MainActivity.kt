@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
         // View customization:
         horizontalCounter?.apply {
             setTextColor(ContextCompat.getColor(this@MainActivity, R.color.colorAccent))
+            setMinusIcon(ContextCompat.getDrawable(this@MainActivity, R.drawable.chevron_down))
             setMinusButtonColor(ContextCompat.getColor(this@MainActivity, R.color.colorPrimary))
+            setPlusIcon(ContextCompat.getDrawable(this@MainActivity, R.drawable.chevron_up))
             setPlusButtonColor(ContextCompat.getColor(this@MainActivity, R.color.colorPrimaryDark))
             setTextSize(16)
         }

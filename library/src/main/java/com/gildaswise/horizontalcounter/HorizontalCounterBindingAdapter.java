@@ -3,6 +3,7 @@ package com.gildaswise.horizontalcounter;
 import android.databinding.BindingAdapter;
 import android.databinding.BindingMethod;
 import android.databinding.BindingMethods;
+import android.graphics.drawable.Drawable;
 
 /*
  * Copyright 2018 - Gildásio Filho (@gildaswise)
@@ -23,10 +24,12 @@ import android.databinding.BindingMethods;
     @BindingMethod(type = HorizontalCounter.class, attribute = "stepValue", method = "setStepValue"),
     @BindingMethod(type = HorizontalCounter.class, attribute = "maxValue", method = "setMaxValue"),
     @BindingMethod(type = HorizontalCounter.class, attribute = "minValue", method = "setMinValue"),
-    @BindingMethod(type = HorizontalCounter.class, attribute = "textColor", method = "setTextColor"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "textColor", method = "setPlusColor"),
     @BindingMethod(type = HorizontalCounter.class, attribute = "textSize", method = "setTextSize"),
     @BindingMethod(type = HorizontalCounter.class, attribute = "minusButtonColor", method = "setMinusButtonColor"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "minusIcon", method = "setMinusIcon"),
     @BindingMethod(type = HorizontalCounter.class, attribute = "plusButtonColor", method = "setPlusButtonColor"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "plusIcon", method = "setPlusIcon"),
     @BindingMethod(type = HorizontalCounter.class, attribute = "displayAsInteger", method = "setDisplayingInteger"),
 })
 public class HorizontalCounterBindingAdapter {
@@ -69,6 +72,16 @@ public class HorizontalCounterBindingAdapter {
     @BindingAdapter("app:plusButtonColor")
     public static void setPlusButtonColor(HorizontalCounter view, int color) {
         view.setPlusButtonColor(color);
+    }
+
+    @BindingAdapter("app:plusIcon")
+    public static void setPlusIcon(HorizontalCounter view, Drawable value) {
+        view.setPlusIcon(value);
+    }
+
+    @BindingAdapter("app:minusIcon")
+    public static void setMinusIcon(HorizontalCounter view, Drawable value) {
+        view.setMinusIcon(value);
     }
 
     @BindingAdapter("app:displayAsInteger")

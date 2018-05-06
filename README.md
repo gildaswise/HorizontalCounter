@@ -24,7 +24,7 @@ allprojects {
 ```java
 dependencies {
     ...
-    compile 'com.github.gildaswise:HorizontalCounter:1.1.0'
+    compile 'com.github.gildaswise:HorizontalCounter:1.2.0'
 }
 ```
 
@@ -65,16 +65,17 @@ horizontalCounter?.apply {
 // View customization:
 horizontalCounter?.apply {
     setTextColor(ContextCompat.getColor(this@MainActivity, R.color.colorAccent))
+    setMinusIcon(ContextCompat.getDrawable(this@MainActivity, R.drawable.chevron_down))
     setMinusButtonColor(ContextCompat.getColor(this@MainActivity, R.color.colorPrimary))
+    setPlusIcon(ContextCompat.getDrawable(this@MainActivity, R.drawable.chevron_up))
     setPlusButtonColor(ContextCompat.getColor(this@MainActivity, R.color.colorPrimaryDark))
     setTextSize(16)
 }
 
 // Custom action on release:
 horizontalCounter?.setOnReleaseListener(RepeatListener.ReleaseCallback {
-    Toast.makeText(this@MainActivity, "Value updated to: " + horizontalCounter!!.getCurrentValue()!!, Toast.LENGTH_SHORT).show()
+    Toast.makeText(this@MainActivity, "Value updated to: " + horizontalCounter?.getCurrentValue(), Toast.LENGTH_SHORT).show()
 })
-
 ```
 
 ## You can also use it with Data Binding! (Click [here](https://github.com/gildaswise/HorizontalCounter/blob/master/app/src/main/java/com/gildaswise/horizontalcounterdemo/MainActivityDataBinding.kt) for an example!)
@@ -96,4 +97,3 @@ horizontalCounter?.setOnReleaseListener(RepeatListener.ReleaseCallback {
 > WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 > See the License for the specific language governing permissions and
 > limitations under the License.
- 

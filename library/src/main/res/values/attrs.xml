@@ -7,6 +7,8 @@
         <attr name="minValue" format="string"/>
         <attr name="plusButtonColor" format="color"/>
         <attr name="minusButtonColor" format="color"/>
+        <attr name="plusIcon" format="reference" />
+        <attr name="minusIcon" format="reference" />
         <attr name="textColor" format="color"/>
         <attr name="textSize" format="dimension"/>
         <attr name="displayAsInteger" format="boolean"/>
