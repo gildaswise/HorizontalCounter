@@ -5,11 +5,7 @@ import android.databinding.BindingMethod;
 import android.databinding.BindingMethods;
 
 /*
- * Created by Gildaswise on 11/05/2017.
- */
-
-/**
- * Copyright 2017 - Gildásio Filho (@gildaswise)
+ * Copyright 2018 - Gildásio Filho (@gildaswise)
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at

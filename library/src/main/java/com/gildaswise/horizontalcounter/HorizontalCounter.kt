@@ -3,15 +3,24 @@ package com.gildaswise.horizontalcounter
 import android.content.Context
 import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import java.util.*
 
-/**
- * Created by gildaswise on 15/01/18.
+/*
+ * Copyright 2018 - Gildásio Filho (@gildaswise)
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 open class HorizontalCounter(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {

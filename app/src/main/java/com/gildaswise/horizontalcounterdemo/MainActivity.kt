@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Custom action on release:
-        horizontalCounter!!.setOnReleaseListener(RepeatListener.ReleaseCallback {
-            Toast.makeText(this@MainActivity, "Value updated to: " + horizontalCounter!!.getCurrentValue()!!, Toast.LENGTH_SHORT).show()
+        horizontalCounter?.setOnReleaseListener(RepeatListener.ReleaseCallback {
+            Toast.makeText(this@MainActivity, "Value updated to: " + horizontalCounter?.getCurrentValue(), Toast.LENGTH_SHORT).show()
         })
 
     }

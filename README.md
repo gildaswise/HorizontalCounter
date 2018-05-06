@@ -48,38 +48,36 @@ dependencies {
     app:minValue="-100" />
 ```
 
-* In Java:
+* In Kotlin:
 
-```java
-HorizontalCounter horizontalCounter = findViewById<HorizontalCounter>(R.id.horizontal_counter);
+```kotlin
+// Params customization:
+horizontalCounter?.apply {
+    setStepValue(0.01)
+    setMaxValue(100.0)
+    setMinValue(-100.0)
+    setCurrentValue(1.0)
+}
 
-// Value of increasing/decreasing
-horizontalCounter.setStepValue(1.0); 
-// Obviously, the maximum value
-horizontalCounter.setMaxValue(100.0);
-// Same as above (but minimum)
-horizontalCounter.setMinValue(-100.0);
-// The current value is the one displayed on the view, you can set its starting value here, or via XML above
-horizontalCounter.setCurrentValue(1.0);
 // If you want to display as integer just do this:
-horizontalCounter.setDisplayingInteger(true);
-// As the name says, this will make the onRelease() code run after any of the buttons is released, either in a long press, or single press
-horizontalCounter.setOnReleaseListener(new RepeatListener.ReleaseCallback() {
-    @Override
-    public void onRelease() {
-        Toast.makeText(MainActivity.this, "Value updated to: " + horizontalCounter.getCurrentValue(), Toast.LENGTH_SHORT).show();
-    }
-});
+// horizontalCounter?.setDisplayingInteger(true)
 
-// You can also set each color via Java (using int color values), and also value's textSize
-horizontalCounter.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
-horizontalCounter.setMinusButtonColor(ContextCompat.getColor(this, R.color.colorPrimary));
-horizontalCounter.setPlusButtonColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
-horizontalCounter.setTextSize(16);
+// View customization:
+horizontalCounter?.apply {
+    setTextColor(ContextCompat.getColor(this@MainActivity, R.color.colorAccent))
+    setMinusButtonColor(ContextCompat.getColor(this@MainActivity, R.color.colorPrimary))
+    setPlusButtonColor(ContextCompat.getColor(this@MainActivity, R.color.colorPrimaryDark))
+    setTextSize(16)
+}
+
+// Custom action on release:
+horizontalCounter?.setOnReleaseListener(RepeatListener.ReleaseCallback {
+    Toast.makeText(this@MainActivity, "Value updated to: " + horizontalCounter!!.getCurrentValue()!!, Toast.LENGTH_SHORT).show()
+})
 
 ```
 
-# You can also use it with Data Binding! (Click [here](https://github.com/gildaswise/HorizontalCounter/blob/master/app/src/main/java/com/gildaswise/horizontalcounterdemo/MainActivityDataBinding.java) for an example!)
+## You can also use it with Data Binding! (Click [here](https://github.com/gildaswise/HorizontalCounter/blob/master/app/src/main/java/com/gildaswise/horizontalcounterdemo/MainActivityDataBinding.java) for an example!)
 
 ## Sample
 
