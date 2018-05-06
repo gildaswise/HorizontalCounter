@@ -2,4 +2,6 @@
     <string name="app_name">horizontalcounter</string>
     <string name="minus">-</string>
     <string name="plus">+</string>
+    <string name="minus_description">Decrement button</string>
+    <string name="plus_description">Increment button</string>
 </resources>

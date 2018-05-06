@@ -2,9 +2,11 @@ package com.gildaswise.horizontalcounter
 
 import android.content.Context
 import android.support.v4.content.ContextCompat
+import android.support.v4.graphics.drawable.DrawableCompat
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import java.util.*
@@ -47,8 +49,8 @@ open class HorizontalCounter(context: Context, attrs: AttributeSet) : LinearLayo
     private var displayingInteger = false
     private var releaseCallback: RepeatListener.ReleaseCallback? = null
     private var value: TextView? = null
-    private var plusButton: Button? = null
-    private var minusButton:Button? = null
+    private var plusButton: ImageButton? = null
+    private var minusButton: ImageButton? = null
 
     init {
 
@@ -220,7 +222,7 @@ open class HorizontalCounter(context: Context, attrs: AttributeSet) : LinearLayo
 
     fun setPlusButtonColor(plusButtonColor: Int) {
         this.plusButtonColor = plusButtonColor
-        plusButton?.setTextColor(plusButtonColor)
+        this.plusButton?.drawable?.let { DrawableCompat.setTint(it, plusButtonColor) }
     }
 
     fun getMinusButtonColor(): Int {
@@ -229,7 +231,7 @@ open class HorizontalCounter(context: Context, attrs: AttributeSet) : LinearLayo
 
     fun setMinusButtonColor(minusButtonColor: Int) {
         this.minusButtonColor = minusButtonColor
-        minusButton?.setTextColor(minusButtonColor)
+        this.minusButton?.drawable?.let { DrawableCompat.setTint(it, minusButtonColor) }
     }
 
     fun isDisplayingInteger(): Boolean {
