@@ -7,17 +7,18 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 
 /**
- * Taken and adapted from this answer on StackOverflow: http://stackoverflow.com/a/12795551
+ * Adapted from this answer on StackOverflow: http://stackoverflow.com/a/12795551
  *
  * A class, that can be used as a TouchListener on any view (e.g. a Button).
  * It cyclically runs a clickListener, emulating keyboard-like behaviour. First
  * click is fired immediately, next one after the initialInterval, and subsequent
  * ones after the normalInterval.
  *
- * <p>Interval is scheduled after the onClick completes, so it has to run fast.
+ * Interval is scheduled after the onClick completes, so it has to run fast.
  * If it runs slow, it does not generate skipped onClicks. Can be rewritten to
  * achieve this.
  */
+
 public class RepeatListener implements OnTouchListener {
 
     public interface ReleaseCallback {
@@ -51,9 +52,9 @@ public class RepeatListener implements OnTouchListener {
     public RepeatListener(int initialInterval, int normalInterval,
                           OnClickListener clickListener, ReleaseCallback releaseCallback) {
         if (clickListener == null)
-            throw new IllegalArgumentException("null runnable");
+            throw new IllegalArgumentException("Null Runnable");
         if (initialInterval < 0 || normalInterval < 0)
-            throw new IllegalArgumentException("negative interval");
+            throw new IllegalArgumentException("Negative interval is invalid!");
 
         this.initialInterval = initialInterval;
         this.normalInterval = normalInterval;
@@ -63,7 +64,7 @@ public class RepeatListener implements OnTouchListener {
 
     RepeatListener(OnClickListener clickListener, ReleaseCallback releaseCallback) {
         if (clickListener == null)
-            throw new IllegalArgumentException("null runnable");
+            throw new IllegalArgumentException("Null runnable");
         this.clickListener = clickListener;
         this.releaseCallback = releaseCallback;
     }
@@ -73,19 +74,17 @@ public class RepeatListener implements OnTouchListener {
             case MotionEvent.ACTION_DOWN:
                 handler.removeCallbacks(handlerRunnable);
                 handler.postDelayed(handlerRunnable, initialInterval);
-                downView = view;
-                downView.setPressed(true);
+                view.setPressed(true);
+                view.performClick();
                 clickListener.onClick(view);
                 return true;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 handler.removeCallbacks(handlerRunnable);
-                downView.setPressed(false);
-                downView = null;
+                view.setPressed(false);
                 if(releaseCallback != null) releaseCallback.onRelease();
                 return true;
         }
-
         return false;
     }
 

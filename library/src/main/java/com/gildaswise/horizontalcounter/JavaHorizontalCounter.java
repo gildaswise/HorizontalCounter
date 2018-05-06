@@ -2,14 +2,11 @@ package com.gildaswise.horizontalcounter;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.databinding.BindingMethod;
-import android.databinding.BindingMethods;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,11 +14,7 @@ import android.widget.TextView;
 import java.util.Locale;
 
 /**
- * Created by Gildaswise on 01/03/2017.
- */
-
-/**
- * Copyright 2017 - Gildásio Filho (@gildaswise)
+ * Copyright 2018 - Gildásio Filho (@gildaswise)
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -34,7 +27,7 @@ import java.util.Locale;
  * limitations under the License.
  */
 
-public class HorizontalCounter extends LinearLayout {
+public class JavaHorizontalCounter extends LinearLayout {
 
     public static final int DEFAULT_STEP_COUNT_SIZE = 1;
     public static final int DEFAULT_TEXT_SIZE = 16;
@@ -52,14 +45,14 @@ public class HorizontalCounter extends LinearLayout {
     private int textSize = DEFAULT_TEXT_SIZE;
     private boolean displayingInteger = false;
     private RepeatListener.ReleaseCallback releaseCallback;
-    private TextView value;
+    private TextView value = findViewById(R.id.value);
     private Button plusButton, minusButton;
 
-    public HorizontalCounter(Context context) {
+    public JavaHorizontalCounter(Context context) {
         super(context);
     }
 
-    public HorizontalCounter(Context context, @Nullable AttributeSet attrs) {
+    public JavaHorizontalCounter(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
@@ -67,9 +60,8 @@ public class HorizontalCounter extends LinearLayout {
     private void init(Context context, @Nullable AttributeSet attrs) {
 
         inflate(context, R.layout.layout, this);
-        value = (TextView) findViewById(R.id.value);
-        plusButton = (Button) findViewById(R.id.plus);
-        minusButton = (Button) findViewById(R.id.minus);
+        plusButton = findViewById(R.id.plus);
+        minusButton = findViewById(R.id.minus);
 
         float density = getResources().getDisplayMetrics().density;
         plusButtonColor = ContextCompat.getColor(context, R.color.colorDefault);
@@ -134,14 +126,12 @@ public class HorizontalCounter extends LinearLayout {
     }
 
     private OnTouchListener getPlusButtonListener() {
-        return new RepeatListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(currentValue < maxValue && (currentValue + stepValue) <= maxValue) {
-                    currentValue += stepValue;
-                    updateCurrentValue();
-                }
-            }}, releaseCallback);
+        return new RepeatListener(v -> {
+            if(currentValue < maxValue && (currentValue + stepValue) <= maxValue) {
+                currentValue += stepValue;
+                updateCurrentValue();
+            }
+        }, releaseCallback);
     }
 
     private void updateCurrentValue() {
@@ -165,14 +155,12 @@ public class HorizontalCounter extends LinearLayout {
     }
 
     private OnTouchListener getMinusButtonListener() {
-        return new RepeatListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(currentValue > minValue && (currentValue - stepValue) >= minValue) {
-                    currentValue -= stepValue;
-                    updateCurrentValue();
-                }
-            }}, releaseCallback);
+        return new RepeatListener(v -> {
+            if(currentValue > minValue && (currentValue - stepValue) >= minValue) {
+                currentValue -= stepValue;
+                updateCurrentValue();
+            }
+        }, releaseCallback);
     }
 
     public Double getStepValue() {

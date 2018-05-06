@@ -4,7 +4,7 @@ import android.databinding.BindingAdapter;
 import android.databinding.BindingMethod;
 import android.databinding.BindingMethods;
 
-/**
+/*
  * Created by Gildaswise on 11/05/2017.
  */
 
@@ -23,15 +23,15 @@ import android.databinding.BindingMethods;
  */
 
 @BindingMethods({
-    @BindingMethod(type = HorizontalCounter.class, attribute = "app:initialValue", method = "setCurrentValue"),
-    @BindingMethod(type = HorizontalCounter.class, attribute = "app:stepValue", method = "setStepValue"),
-    @BindingMethod(type = HorizontalCounter.class, attribute = "app:maxValue", method = "setMaxValue"),
-    @BindingMethod(type = HorizontalCounter.class, attribute = "app:minValue", method = "setMinValue"),
-    @BindingMethod(type = HorizontalCounter.class, attribute = "app:textColor", method = "setTextColor"),
-    @BindingMethod(type = HorizontalCounter.class, attribute = "app:textSize", method = "setTextSize"),
-    @BindingMethod(type = HorizontalCounter.class, attribute = "app:minusButtonColor", method = "setMinusButtonColor"),
-    @BindingMethod(type = HorizontalCounter.class, attribute = "app:plusButtonColor", method = "setPlusButtonColor"),
-    @BindingMethod(type = HorizontalCounter.class, attribute = "app:displayAsInteger", method = "setDisplayingInteger"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "initialValue", method = "setCurrentValue"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "stepValue", method = "setStepValue"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "maxValue", method = "setMaxValue"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "minValue", method = "setMinValue"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "textColor", method = "setTextColor"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "textSize", method = "setTextSize"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "minusButtonColor", method = "setMinusButtonColor"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "plusButtonColor", method = "setPlusButtonColor"),
+    @BindingMethod(type = HorizontalCounter.class, attribute = "displayAsInteger", method = "setDisplayingInteger"),
 })
 public class HorizontalCounterBindingAdapter {
 
