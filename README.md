@@ -48,34 +48,30 @@ dependencies {
     app:minValue="-100" />
 ```
 
-* In Kotlin:
+* In Java:
 
-```kotlin
+```java
 // Params customization:
-horizontalCounter?.apply {
-    setStepValue(0.01)
-    setMaxValue(100.0)
-    setMinValue(-100.0)
-    setCurrentValue(1.0)
-}
+horizontalCounter.setStepValue(0.01);
+horizontalCounter.setMaxValue(100.0);
+horizontalCounter.setMinValue(-100.0);
+horizontalCounter.setCurrentValue(1.0);
 
 // If you want to display as integer just do this:
-horizontalCounter?.setDisplayingInteger(true)
+// horizontalCounter.setDisplayingInteger(true)
 
 // View customization:
-horizontalCounter?.apply {
-    setTextColor(ContextCompat.getColor(this@MainActivity, R.color.colorAccent))
-    setMinusIcon(ContextCompat.getDrawable(this@MainActivity, R.drawable.chevron_down))
-    setMinusButtonColor(ContextCompat.getColor(this@MainActivity, R.color.colorPrimary))
-    setPlusIcon(ContextCompat.getDrawable(this@MainActivity, R.drawable.chevron_up))
-    setPlusButtonColor(ContextCompat.getColor(this@MainActivity, R.color.colorPrimaryDark))
-    setTextSize(16)
-}
+horizontalCounter.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+horizontalCounter.setMinusIcon(ContextCompat.getDrawable(this, R.drawable.chevron_down));
+horizontalCounter.setMinusButtonColor(ContextCompat.getColor(this, R.color.colorPrimary));
+horizontalCounter.setPlusIcon(ContextCompat.getDrawable(this, R.drawable.chevron_up));
+horizontalCounter.setPlusButtonColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+horizontalCounter.setTextSize(16);
 
 // Custom action on release:
-horizontalCounter?.setOnReleaseListener(RepeatListener.ReleaseCallback {
-    Toast.makeText(this@MainActivity, "Value updated to: " + horizontalCounter?.getCurrentValue(), Toast.LENGTH_SHORT).show()
-})
+horizontalCounter.setOnReleaseListener(() -> {
+    Toast.makeText(this, "Value updated to: " + horizontalCounter.getCurrentValue(), Toast.LENGTH_SHORT).show();
+});
 ```
 
 ### You can also use it with Data Binding! (Click [here](https://github.com/gildaswise/HorizontalCounter/blob/master/app/src/main/java/com/gildaswise/horizontalcounterdemo/MainActivityDataBinding.kt) for an example!)
