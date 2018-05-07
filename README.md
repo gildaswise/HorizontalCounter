@@ -24,7 +24,7 @@ allprojects {
 ```java
 dependencies {
     ...
-    compile 'com.github.gildaswise:HorizontalCounter:1.2.0'
+    compile 'com.github.gildaswise:HorizontalCounter:1.3.0'
 }
 ```
 
@@ -60,7 +60,7 @@ horizontalCounter?.apply {
 }
 
 // If you want to display as integer just do this:
-// horizontalCounter?.setDisplayingInteger(true)
+horizontalCounter?.setDisplayingInteger(true)
 
 // View customization:
 horizontalCounter?.apply {
@@ -78,7 +78,7 @@ horizontalCounter?.setOnReleaseListener(RepeatListener.ReleaseCallback {
 })
 ```
 
-## You can also use it with Data Binding! (Click [here](https://github.com/gildaswise/HorizontalCounter/blob/master/app/src/main/java/com/gildaswise/horizontalcounterdemo/MainActivityDataBinding.kt) for an example!)
+### You can also use it with Data Binding! (Click [here](https://github.com/gildaswise/HorizontalCounter/blob/master/app/src/main/java/com/gildaswise/horizontalcounterdemo/MainActivityDataBinding.kt) for an example!)
 
 ## Sample
 

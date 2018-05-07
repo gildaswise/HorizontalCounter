@@ -1,6 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
@@ -10,7 +8,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 1
-        versionName "1.2.0"
+        versionName "1.3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     dataBinding {
@@ -36,9 +34,8 @@ dependencies {
     })
     implementation("com.android.support:appcompat-v7:$support_library") { force = true }
     implementation("com.android.support:support-v4:$support_library") { force = true }
-    implementation project(':library')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation project(':library')
 }
 repositories {
     mavenCentral()

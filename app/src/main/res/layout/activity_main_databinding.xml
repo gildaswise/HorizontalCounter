@@ -19,17 +19,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:initialValue="@{values.value ?? Double.valueOf(1.0)}"
-            app:maxValue="@{values.max ?? Double.valueOf(100)}"
-            app:minValue="@{values.min ?? Double.valueOf(-100)}"
-            app:stepValue="@{values.step ?? Double.valueOf(1.0)}"
+            app:initialValue="@{values.value ?? Double.valueOf(1)}"
+            app:maxValue="@{values.max ?? Double.valueOf(10)}"
+            app:minValue="@{values.min ?? Double.valueOf(-10)}"
+            app:stepValue="@{values.step ?? Double.valueOf(1)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:minusButtonColor="#F44336"
             app:plusButtonColor="#2196F3"
-            app:plusIcon="@{@drawable/chevron_down}"
+            app:plusIcon="@{@drawable/chevron_up}"
             app:textColor="#009688" />
 
     </android.support.constraint.ConstraintLayout>
